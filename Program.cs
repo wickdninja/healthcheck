@@ -2,13 +2,14 @@ using System;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Figgle;
 
 namespace healthcheck
 {
     public class Program
     {
         private const int Alive = 0;
-        private const int Dead = -1;
+        private const int Dead = 1;
         public static async Task<int> Main(string[] args)
         {
             if (!HasUrlArg(args)) return Dead;
@@ -16,23 +17,25 @@ namespace healthcheck
             switch (result)
             {
                 case Alive:
-                    Console.WriteLine("Alive");
+                    Print("Alive");
                     break;
                 case Dead:
-                    Console.WriteLine("Dead");
+                    Print("Dead");
                     break;
                 default:
-                    Console.WriteLine("Unknown Result: Reporting Dead");
+                    Print("Unknown Result: Reporting Dead");
                     result = Dead;
                     break;
             }
             return result;
         }
 
+
+
         private static bool HasUrlArg(string[] args)
         {
             if (args.Length.Equals(1)) return true;
-            Console.WriteLine("USAGE: dotnet healthcheck {url}");
+            Print("USAGE: dotnet healthcheck {url}");
             return false;
         }
 
@@ -49,6 +52,11 @@ namespace healthcheck
                 return Dead;
             }
 
+        }
+
+        private static void Print(string msg)
+        {
+            Console.WriteLine(FiggleFonts.Standard.Render(msg));
         }
     }
 }
