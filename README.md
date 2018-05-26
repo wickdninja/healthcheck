@@ -2,7 +2,7 @@
 
 ## Installation
 
-`dotnet install -g healthcheck'
+`dotnet install tool -g healthcheck'
 
 ## Usage
 
