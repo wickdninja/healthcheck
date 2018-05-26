@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ToolCommandName>healthcheck</ToolCommandName>
+    <PackAsTool>True</PackAsTool>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+</Project>
